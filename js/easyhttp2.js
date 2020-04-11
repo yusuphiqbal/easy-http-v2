@@ -16,4 +16,13 @@ class EasyHTTP {
         .catch(error => reject(error))
     });
   }
+
+  put(url, data) {
+    return new Promise((resolve, reject) => {
+      fetch(url, { method: 'PUT', headers: { 'Content-type': 'Application/json' }, body: JSON.stringify(data) })
+        .then(response => response.json())
+        .then(data => resolve(data))
+        .catch(error => reject(error))
+    });
+  }
 }
